@@ -1,6 +1,15 @@
 NAME=libft.a
 
-all: ./a.out
+all: $(NAME)
 
-a.out:
-	gcc -Wall -Werror -Wextra *.c
+$(NAME):
+	gcc -Wall -Werror -Wextra -c *.c
+	ar rcs $(NAME) *.o
+
+clean:
+	rm -f *.o
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
